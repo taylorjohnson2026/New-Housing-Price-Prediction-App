@@ -1,0 +1,17 @@
+import zipfile
+import os
+
+# Define file path
+zip_path = "/mnt/data/archive.zip"
+extract_path = "/mnt/data/extracted_files"
+
+# Create extraction directory if not exists
+os.makedirs(extract_path, exist_ok=True)
+
+# Extract the zip file
+with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+    zip_ref.extractall(extract_path)
+
+# List extracted files
+extracted_files = os.listdir(extract_path)
+extracted_files
